@@ -1,9 +1,7 @@
 package com.edutech.edutech.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Data
 @NoArgsConstructor
@@ -22,6 +20,7 @@ public class Foro {
     @Column(length = 500)
     private String descripcion;
 
-    @Column(length = 100)
-    private String categoria;
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private CategoriaForo categoria;
 }
