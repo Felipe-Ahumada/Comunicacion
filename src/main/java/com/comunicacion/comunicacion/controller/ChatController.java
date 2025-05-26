@@ -49,4 +49,3 @@ public class ChatController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }
-
