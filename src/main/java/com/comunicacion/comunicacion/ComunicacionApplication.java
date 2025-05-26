@@ -1,13 +1,13 @@
-package com.edutech.edutech;
+package com.comunicacion.comunicacion;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class EdutechApplication {
+public class ComunicacionApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(EdutechApplication.class, args);
+		SpringApplication.run(ComunicacionApplication.class, args);
 	}
 
 }

@@ -1,4 +1,4 @@
-package com.edutech.edutech.model;
+package com.comunicacion.comunicacion.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 

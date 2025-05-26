@@ -1,11 +1,12 @@
-package com.edutech.edutech.service;
+package com.comunicacion.comunicacion.service;
 
-import com.edutech.edutech.model.Chat;
-import com.edutech.edutech.model.Foro;
-import com.edutech.edutech.repository.ChatRepository;
-import com.edutech.edutech.repository.ForoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.comunicacion.comunicacion.model.Chat;
+import com.comunicacion.comunicacion.model.Foro;
+import com.comunicacion.comunicacion.repository.ChatRepository;
+import com.comunicacion.comunicacion.repository.ForoRepository;
 
 import java.util.List;
 

@@ -1,9 +1,10 @@
-package com.edutech.edutech.service;
+package com.comunicacion.comunicacion.service;
 
-import com.edutech.edutech.model.*;
-import com.edutech.edutech.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.comunicacion.comunicacion.model.*;
+import com.comunicacion.comunicacion.repository.*;
 
 import java.util.List;
 

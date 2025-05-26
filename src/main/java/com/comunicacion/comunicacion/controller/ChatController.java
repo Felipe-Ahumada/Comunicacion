@@ -1,11 +1,12 @@
-package com.edutech.edutech.controller;
+package com.comunicacion.comunicacion.controller;
 
-import com.edutech.edutech.model.Chat;
-import com.edutech.edutech.service.ChatService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import com.comunicacion.comunicacion.model.Chat;
+import com.comunicacion.comunicacion.service.ChatService;
 
 import java.util.List;
 

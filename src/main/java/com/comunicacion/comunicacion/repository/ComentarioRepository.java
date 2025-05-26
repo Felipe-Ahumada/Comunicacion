@@ -1,10 +1,11 @@
-package com.edutech.edutech.repository;
+package com.comunicacion.comunicacion.repository;
 
-import com.edutech.edutech.model.Comentario;
-import com.edutech.edutech.model.Chat;
-import com.edutech.edutech.model.Foro;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
+import com.comunicacion.comunicacion.model.Chat;
+import com.comunicacion.comunicacion.model.Comentario;
+import com.comunicacion.comunicacion.model.Foro;
 
 import java.util.List;
 

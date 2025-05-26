@@ -1,9 +1,10 @@
-package com.edutech.edutech.controller;
+package com.comunicacion.comunicacion.controller;
 
-import com.edutech.edutech.model.Comentario;
-import com.edutech.edutech.service.ComentarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import com.comunicacion.comunicacion.model.Comentario;
+import com.comunicacion.comunicacion.service.ComentarioService;
 
 import java.util.List;
 
