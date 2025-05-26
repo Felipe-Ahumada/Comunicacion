@@ -1,5 +1,7 @@
 package com.edutech.edutech.model;
 
+import java.util.List;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,5 +27,8 @@ public class Chat {
     @ManyToOne
     @JoinColumn(name = "id_foro", nullable = false)
     private Foro foro;
+
+    @OneToMany(mappedBy = "chat", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Comentario> comentarios;
 }
 

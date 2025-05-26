@@ -1,7 +1,11 @@
 package com.edutech.edutech.model;
 
+import java.util.List;
+
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
@@ -23,4 +27,10 @@ public class Foro {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private CategoriaForo categoria;
+
+    @OneToMany(mappedBy = "foro", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Chat> chats;
+
+    @OneToMany(mappedBy = "foro", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Comentario> comentarios;
 }
