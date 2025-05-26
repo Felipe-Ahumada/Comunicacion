@@ -1,5 +1,7 @@
 package com.edutech.edutech.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -25,10 +27,12 @@ public class Comentario {
 
     @ManyToOne
     @JoinColumn(name = "id_foro")
+    @JsonBackReference("foro-comentario")
     private Foro foro;
 
     @ManyToOne
     @JoinColumn(name = "id_chat")
+    @JsonBackReference("chat-comentario")
     private Chat chat;
 }
 

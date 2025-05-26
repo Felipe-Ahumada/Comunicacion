@@ -2,6 +2,9 @@ package com.edutech.edutech.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -26,9 +29,11 @@ public class Chat {
 
     @ManyToOne
     @JoinColumn(name = "id_foro", nullable = false)
+    @JsonBackReference("foro-chat")
     private Foro foro;
 
     @OneToMany(mappedBy = "chat", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference("chat-comentario")
     private List<Comentario> comentarios;
 }
 

@@ -3,6 +3,8 @@ package com.edutech.edutech.controller;
 import com.edutech.edutech.model.Chat;
 import com.edutech.edutech.service.ChatService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,23 +17,35 @@ public class ChatController {
     private ChatService chatService;
 
     @PostMapping
-    public Chat crearChat(@PathVariable Long idForo, @RequestBody Chat chat) {
-        return chatService.crearChat(idForo, chat);
+    public ResponseEntity<Chat> crearChat(@PathVariable Long idForo, @RequestBody Chat chat) {
+        Chat creado = chatService.crearChat(idForo, chat);
+        return new ResponseEntity<>(creado, HttpStatus.CREATED);
     }
 
     @GetMapping
-    public List<Chat> listarChats(@PathVariable Long idForo) {
-        return chatService.obtenerChatsPorForo(idForo);
+    public ResponseEntity<List<Chat>> listarChats(@PathVariable Long idForo) {
+        List<Chat> chats = chatService.obtenerChatsPorForo(idForo);
+        return chats.isEmpty()
+            ? new ResponseEntity<>(HttpStatus.NO_CONTENT)
+            : new ResponseEntity<>(chats, HttpStatus.OK);
     }
 
     @GetMapping("/{idChat}")
-    public Chat obtenerChatPorId(@PathVariable Long idChat) {
-        return chatService.obtenerChatPorId(idChat);
+    public ResponseEntity<Chat> obtenerChatPorId(@PathVariable Long idChat) {
+        Chat chat = chatService.obtenerChatPorId(idChat);
+        return chat == null
+            ? new ResponseEntity<>(HttpStatus.NOT_FOUND)
+            : new ResponseEntity<>(chat, HttpStatus.OK);
     }
 
     @DeleteMapping("/{idChat}")
-    public void eliminarChat(@PathVariable Long idChat) {
+    public ResponseEntity<Void> eliminarChat(@PathVariable Long idChat) {
+        Chat chat = chatService.obtenerChatPorId(idChat);
+        if (chat == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
         chatService.eliminarChat(idChat);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }
 

@@ -2,6 +2,8 @@ package com.edutech.edutech.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -29,8 +31,10 @@ public class Foro {
     private CategoriaForo categoria;
 
     @OneToMany(mappedBy = "foro", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference("foro-chat")
     private List<Chat> chats;
 
     @OneToMany(mappedBy = "foro", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference("foro-comentario")
     private List<Comentario> comentarios;
 }
