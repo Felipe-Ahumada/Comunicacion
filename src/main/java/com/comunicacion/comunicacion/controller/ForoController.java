@@ -9,6 +9,7 @@ import com.comunicacion.comunicacion.model.Foro;
 import com.comunicacion.comunicacion.service.ForoService;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/foros")
@@ -18,9 +19,14 @@ public class ForoController {
     private ForoService foroService;
 
     @PostMapping
-    public ResponseEntity<Foro> crearForo(@RequestBody Foro foro) {
-        Foro creado = foroService.crearForo(foro);
-        return new ResponseEntity<>(creado, HttpStatus.CREATED);
+    public ResponseEntity<?> crearForo(@RequestBody Foro foro) {
+        try {
+            Foro nuevo = foroService.crearForo(foro);
+            return ResponseEntity.status(HttpStatus.CREATED).body(nuevo);
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.CONFLICT)
+                .body(Map.of("error", e.getMessage()));
+        }
     }
 
     @GetMapping

@@ -7,5 +7,7 @@ import com.comunicacion.comunicacion.model.Foro;
 
 @Repository
 public interface ForoRepository extends JpaRepository<Foro, Long> {
+    boolean existsByTituloIgnoreCase(String titulo);
+
 }
 

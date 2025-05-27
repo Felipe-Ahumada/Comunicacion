@@ -15,8 +15,11 @@ public class ForoService {
     private ForoRepository foroRepository;
 
     public Foro crearForo(Foro foro) {
-        return foroRepository.save(foro);
+    if (foroRepository.existsByTituloIgnoreCase(foro.getTitulo())) {
+        throw new RuntimeException("Ya existe un foro con ese título.");
     }
+    return foroRepository.save(foro);
+}
 
     public List<Foro> obtenerTodosLosForos() {
         return foroRepository.findAll();
