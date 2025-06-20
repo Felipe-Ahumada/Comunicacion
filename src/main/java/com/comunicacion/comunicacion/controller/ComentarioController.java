@@ -17,11 +17,15 @@ public class ComentarioController {
 
     @PostMapping("/foros/{idForo}")
     public Comentario comentarForo(@PathVariable Long idForo, @RequestBody Comentario comentario) {
+        // Asignar autor fijo (no modificable por el cliente)
+        comentario.setAutor("Pedrito quinto b");
         return comentarioService.comentarForo(idForo, comentario);
     }
 
     @PostMapping("/chats/{idChat}")
     public Comentario comentarChat(@PathVariable Long idChat, @RequestBody Comentario comentario) {
+        // Asignar autor fijo (no modificable por el cliente)
+        comentario.setAutor("Pedrito quinto b");
         return comentarioService.comentarChat(idChat, comentario);
     }
 

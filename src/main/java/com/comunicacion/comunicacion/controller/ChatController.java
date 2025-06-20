@@ -19,6 +19,9 @@ public class ChatController {
 
     @PostMapping
     public ResponseEntity<Chat> crearChat(@PathVariable Long idForo, @RequestBody Chat chat) {
+        
+        chat.setAutor("Pedrito quinto b");
+
         Chat creado = chatService.crearChat(idForo, chat);
         return new ResponseEntity<>(creado, HttpStatus.CREATED);
     }
